@@ -110,11 +110,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Calculadora Bulldogs</h1>
+    <h1>Calculadora Eastside</h1>
 
     <div class="table-row">
       <div class="table-container">
-        <h2>Pintura / Iluminação</h2>
+        <h2>Pintura</h2>
         <table class="item-list">
           <tr>
             <th>Item</th>
@@ -135,6 +135,18 @@
         </table>
       </div>
     </div>
+
+    <div class="table-row">
+      <div class="table-container">
+        <h2>Interior</h2>
+        <table class="item-list">
+          <tr>
+            <th>Item</th>
+            <th>Valor</th>
+            <th>Selecionar</th>
+          </tr>
+        </table>
+      </div>
 
     <div class="table-row">
       <div class="table-container">
@@ -159,6 +171,30 @@
         </table>
       </div>
     </div>
+
+    <div class="table-container">
+      <h2>Iluminação</h2>
+      <table class="item-list">
+        <tr>
+          <th>Item</th>
+          <th>Valor</th>
+          <th>Selecionar</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <h2>Adesivo</h2>
+    <table class="item-list">
+      <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Selecionar</th>
+      </tr>
+    </table>
+  </div>
+</div>
 
     <div class="table-row">
       <div class="table-container">
@@ -201,108 +237,125 @@
 
   <script>
     const tablesData = [
+    [
+      //Pintura
+      { nome: 'Primária', valor: 3500 },
+      { nome: 'Secundária', valor: 1500 },
+      { nome: 'Apenas perolado', valor: 1500 },
+      { nome: 'Cromado', valor: 1500 },
+      { nome: 'Metálico', valor: 1000 },
+      { nome: 'Fosco', valor: 750 },
+      { nome: 'Metal', valor: 750 }
+    ],
+
+    //Rodas
+    [
+      { nome: 'Trocar', valor: 5000 },
+      { nome: 'Cor', valor: 1000 },
+      { nome: 'Custom', valor: 2000 },
+      { nome: 'Pneu Drift (motos)', valor: 2000 },
+      { nome: 'Fumaça', valor: 750 },
+      { nome: 'Blindagem de Pneu', valor: 3000 }
+    ],
+
+    //Interior
       [
-        { nome: 'Cor primaria', valor: 7000 },
-        { nome: 'Perolado', valor: 4000 },
-        { nome: 'Textura', valor: 4000 },
-        { nome: 'Cor pelo RBG', valor: 4000 },
-        { nome: 'Cor secundaria', valor: 4000 },
-        { nome: 'Textura secundaria', valor: 4000 },
-        { nome: 'Pintura placa', valor: 3000 },
-        { nome: 'Xenon aplicar', valor: 15500 },
-        { nome: 'Xenon cor', valor: 500 },
-        { nome: 'Neon aplicar', valor: 5000 },
-        { nome: 'Neon cor', valor: 500 }
+        { nome: 'Interior 1 a 10', valor: 500 },
+        { nome: 'Interior 11 a 20', valor: 500 },
+        { nome: 'Interior 21 a 30', valor: 500 },
+        { nome: 'Interior 31 a 40', valor: 500 },
+        { nome: 'Interior 41 a 55', valor: 500 },
+
       ],
+
+      //Estrutura
       [
-        { nome: 'Trocar 1 a 64', valor: 8000 },
-        { nome: 'Trocar 65 a 167', valor: 20000 },
-        { nome: 'Cor', valor: 500 },
-        { nome: 'Custom', valor: 15000 },
-        { nome: 'Drift', valor: 3000 },
-        { nome: 'Fumaça', valor: 1000 },
-        { nome: 'Blindagem normal', valor: 150000 },
-        { nome: 'Blindagem Policia', valor: 10000 },
+        { nome: 'Aerofólio', valor: 4000 },
+        { nome: 'Dianteiro', valor: 4000 },
+        { nome: 'Traseiro', valor: 4000 },
+        { nome: 'Saias', valor: 2000 },
+        { nome: 'Escapamento', valor: 2000 },
+        { nome: 'Chassi/gaiola', valor: 2000 },
+        { nome: 'Porta-malas', valor: 2000 },
+        { nome: 'Capa de Farol', valor: 2500 },
+        { nome: 'Grelha', valor: 3000 },
+        { nome: 'Capo', valor: 3000 },
+        { nome: 'Teto', valor: 2000 },
+        { nome: 'Para-lamas', valor: 2000 },
+        { nome: 'Suporte', valor: 1500 },
+        { nome: 'Filtro de Ar', valor: 1500 },
+        { nome: 'Capa', valor: 1500 },
+        { nome: 'Trim', valor: 1500 },
+        { nome: 'Antena', valor: 1500 },
+        { nome: 'Tanque', valor: 1500 },
+        { nome: 'Janela', valor: 1500 },
+        { nome: 'Decal', valor: 1500 },
+        { nome: 'Lightbar', valor: 1500 },
+        { nome: 'Som', valor: 1500 },
+        { nome: 'Hidráulica', valor: 1500 },
+        { nome: 'Cambio', valor: 1500 },
+        { nome: 'Volante', valor: 1500 },
+        { nome: 'Banco', valor: 1500 },
+        { nome: 'Porta', valor: 1500 },
+        { nome: 'Painel', valor: 1500 },
+        { nome: 'Enfeite', valor: 1500 },
+        { nome: 'Ponteiro', valor: 1500 },
+        { nome: 'Porta-Placa', valor: 1500 },
+        { nome: 'Placa', valor: 4000 },
+        { nome: 'Vidros/ Fume', valor: 4000 },
+        { nome: 'Buzina', valor: 2000 },
+        { nome: 'Extras', valor: 500 }
       ],
+
+      //Iluminação
       [
-        { nome: 'Adesivo/Decal 1 a 7', valor: 10000 },
-        { nome: 'Adesivo/Decal 8 a 19', valor: 20000 },
-        { nome: 'Fume', valor: 5500 },
-        { nome: 'Buzina', valor: 1000 },
-        { nome: 'Interior 1 a 8', valor: 15000 },
-        { nome: 'Interior 9 a 15', valor: 25000 },
-        { nome: 'Interior 16 a 23', valor: 35000 },
-        { nome: 'Interior 24 a 31', valor: 45000 },
-        { nome: 'Interior 32 a 39', valor: 55000 },
-        { nome: 'Interior 40 a 45', valor: 62000 },
-        { nome: 'Exterior 1 a 8', valor: 15000 },
-        { nome: 'Exterior 9 a 15', valor: 25000 },
-        { nome: 'Exterior 16 a 23', valor: 35000 },
-        { nome: 'Exterior 24 a 31', valor: 45000 },
-        { nome: 'Exterior 32 a 39', valor: 55000 },
-        { nome: 'Exterior 40 a 45', valor: 62000 },
-        { nome: 'Extra', valor: 1000 },
-        { nome: 'Extra I', valor: 1000 },
-        { nome: 'Extra II', valor: 1000 },
-        { nome: 'Extra III', valor: 1000 },
-        { nome: 'Extra IV', valor: 1000 },
-        { nome: 'Extra V', valor: 1000 },
+        { nome: 'Instalação', valor: 10000 },
+        { nome: 'Cor', valor: 500 }
       ],
+
+      //Adesivo
       [
-        { nome: 'Aerofólio 1 a 14', valor: 8000 },
-        { nome: 'Aerofólio 15 a 30', valor: 16000 },
-        { nome: 'Para-choque Dianteiro 1 a 6', valor: 6000 },
-        { nome: 'Para-choque Traseiro 1 a 6', valor: 6000 },
-        { nome: 'Para-choque Dianteiro 7 a 12', valor: 12000 },
-        { nome: 'Para-choque Traseiro 7 a 12', valor: 12000 },
-        { nome: 'Saias 1 a 7', valor: 4000 },
-        { nome: 'Saias 7 a 14', valor: 8000 },
-        { nome: 'Escapamento 1 a 8', valor: 4000 },
-        { nome: 'Escapamento 9 a 16', valor: 8000 },
-        { nome: 'Para-lama Dianteiro 1 a 7', valor: 4000 },
-        { nome: 'Para-lama Traseiro 1 a 7', valor: 4000 },
-        { nome: 'Para-lama Ddianteiro 8 a 14', valor: 8000 },
-        { nome: 'Para-lama Traseiro 8 a 14', valor: 8000 },
-        { nome: 'Chasssi', valor: 2500 },
-        { nome: 'Porta', valor: 12500 },
-        { nome: 'Capa de farol', valor: 6500 },
-        { nome: 'Grelha', valor: 4000 },
-        { nome: 'Capo 1 a 9', valor: 5000 },
-        { nome: 'Capo 10 a 20', valor: 10000 },
-        { nome: 'Teto 1 a 9', valor: 6000 },
-        { nome: 'Teto 10 a 19', valor: 12000 },
+        { nome: 'Decal / Adesivos', valor: 6000 }
       ],
+      // Performance
       [
-        { nome: 'Motor I', valor: 37000 },
-        { nome: 'Motor II', valor: 42000 },
-        { nome: 'Motor III', valor: 48000 },
-        { nome: 'Motor IV', valor: 53000 },
-        { nome: 'Motor V', valor: 58000 },
+        { nome: 'Motor I', valor: 32000 },
+        { nome: 'Motor II', valor: 36000 },
+        { nome: 'Motor III', valor: 44000 },
+        { nome: 'Motor IV', valor: 50000 },
+
         { nome: 'Freios I', valor: 30000 },
         { nome: 'Freios II', valor: 34000 },
         { nome: 'Freios III', valor: 38000 },
         { nome: 'Freios IV', valor: 42000 },
-        { nome: 'Transmissão I', valor: 38000 },
-        { nome: 'Transmissão II', valor: 42000 },
-        { nome: 'Transmissão III', valor: 45000 },
-        { nome: 'Transmissão IV', valor: 50000 },
-        { nome: 'Suspensão I', valor: 38000 },
-        { nome: 'Suspensão II', valor: 45000 },
-        { nome: 'Suspensão III', valor: 52000 },
-        { nome: 'Suspensão IV', valor: 60000 },
-        { nome: 'Suspensão V', valor: 70000 },
-        { nome: 'Blindagem 20%', valor: 80000 },
-        { nome: 'Blindagem 40%', valor: 100000 },
-        { nome: 'Blindagem 60%', valor: 120000 },
-        { nome: 'Blindagem 80%', valor: 140000 },
-        { nome: 'Blindagem 100%', valor: 160000 },
-        { nome: 'Turbo', valor: 20000 },
+
+        { nome: 'Transmissão I', valor: 30000 },
+        { nome: 'Transmissão II', valor: 35000 },
+        { nome: 'Transmissão III', valor: 40000 },
+
+        { nome: 'Freio I', valor: 22000 },
+        { nome: 'Freio II', valor: 25000 },
+        { nome: 'Freio III', valor: 30000 },
+
+        { nome: 'Suspensão I', valor: 15000 },
+        { nome: 'Suspensão II', valor: 19000 },
+        { nome: 'Suspensão III', valor: 22000 },
+        { nome: 'Suspensão IV', valor: 25000 },
+        { nome: 'Suspensão V', valor: 30000 },
+
+        { nome: 'Blindagem 20%', valor: 9000 },
+        { nome: 'Blindagem 40%', valor: 11000 },
+        { nome: 'Blindagem 60%', valor: 14000 },
+        { nome: 'Blindagem 80%', valor: 17000 },
+        { nome: 'Blindagem 100%', valor: 20000 },
+
+        { nome: 'Turbo', valor: 40000 },
       ],
     ];
 
     const discountsData = [
-      { empresa: 'River Airways', porcentagem: 20 },
-      { empresa: 'Oasis', porcentagem: 10 },
+      { empresa: '-', porcentagem: 20 },
+      { empresa: '-', porcentagem: 10 },
     ];
 
     function createTableRow(item, valor) {
