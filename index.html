@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +36,8 @@
     }
 
     .table-container {
-      flex: 1 1 calc(50% - 20px); /* duas colunas com espaçamento */
+      flex: 1 1 calc(50% - 20px);
+      /* duas colunas com espaçamento */
       box-sizing: border-box;
       overflow-x: auto;
       margin-bottom: 20px;
@@ -46,7 +48,8 @@
       border-collapse: collapse;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #ffffff;
       padding: 8px;
       text-align: left;
@@ -108,6 +111,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Calculadora Eastside</h1>
@@ -159,19 +163,31 @@
         </table>
       </div>
 
-    <div class="table-container">
-      <h2>Iluminação</h2>
-      <table class="item-list">
-        <tr>
-          <th>Item</th>
-          <th>Valor</th>
-          <th>Selecionar</th>
-        </tr>
-      </table>
+      <div class="table-container">
+        <h2>Iluminação</h2>
+        <table class="item-list">
+          <tr>
+            <th>Item</th>
+            <th>Valor</th>
+            <th>Selecionar</th>
+          </tr>
+        </table>
+      </div>
+
+      <div class="table-container">
+        <h2>Adesivo</h2>
+        <table class="item-list">
+          <tr>
+            <th>Item</th>
+            <th>Valor</th>
+            <th>Selecionar</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <div class="table-container">
-      <h2>Adesivo</h2>
+      <h2>Tunagem</h2>
       <table class="item-list">
         <tr>
           <th>Item</th>
@@ -182,25 +198,13 @@
     </div>
   </div>
 
-  <div class="table-container">
-    <h2>Tunagem</h2>
-    <table class="item-list">
-      <tr>
-        <th>Item</th>
-        <th>Valor</th>
-        <th>Selecionar</th>
-      </tr>
-    </table>
+  <!-- exibição do total -->
+  <div class="total">
+    <p>Total sem desconto: <span id="total-value">0</span></p>
+    <p>Total com desconto: <span id="total-discounted-value">0</span></p>
   </div>
-</div>
 
-    <!-- exibição do total -->
-    <div class="total">
-      <p>Total sem desconto: <span id="total-value">0</span></p>
-      <p>Total com desconto: <span id="total-discounted-value">0</span></p>
-    </div>
-
-    <button class="reset-button" onclick="resetCheckboxes()">Resetar Seleções</button>
+  <button class="reset-button" onclick="resetCheckboxes()">Resetar Seleções</button>
 
   </div>
 
@@ -211,28 +215,28 @@
 
   <script>
     const tablesData = [
-    [
-      //Pintura
-      { nome: 'Primária', valor: 3500 },
-      { nome: 'Secundária', valor: 1500 },
-      { nome: 'Apenas perolado', valor: 1500 },
-      { nome: 'Cromado', valor: 1500 },
-      { nome: 'Metálico', valor: 1000 },
-      { nome: 'Fosco', valor: 750 },
-      { nome: 'Metal', valor: 750 }
-    ],
+      [
+        //Pintura
+        { nome: 'Primária', valor: 3500 },
+        { nome: 'Secundária', valor: 1500 },
+        { nome: 'Apenas perolado', valor: 1500 },
+        { nome: 'Cromado', valor: 1500 },
+        { nome: 'Metálico', valor: 1000 },
+        { nome: 'Fosco', valor: 750 },
+        { nome: 'Metal', valor: 750 }
+      ],
 
-    //Rodas
-    [
-      { nome: 'Trocar', valor: 5000 },
-      { nome: 'Cor', valor: 1000 },
-      { nome: 'Custom', valor: 2000 },
-      { nome: 'Pneu Drift (motos)', valor: 2000 },
-      { nome: 'Fumaça', valor: 750 },
-      { nome: 'Blindagem de Pneu', valor: 3000 }
-    ],
+      //Rodas
+      [
+        { nome: 'Trocar', valor: 5000 },
+        { nome: 'Cor', valor: 1000 },
+        { nome: 'Custom', valor: 2000 },
+        { nome: 'Pneu Drift (motos)', valor: 2000 },
+        { nome: 'Fumaça', valor: 750 },
+        { nome: 'Blindagem de Pneu', valor: 3000 }
+      ],
 
-    //Interior
+      //Interior
       [
         { nome: 'Interior 1 a 10', valor: 500 },
         { nome: 'Interior 11 a 20', valor: 500 },
@@ -276,14 +280,16 @@
         { nome: 'Ponteiro', valor: 1500 },
         { nome: 'Porta-Placa', valor: 1500 },
         { nome: 'Placa', valor: 4000 },
-        { nome: 'Vidros/ Fume', valor: 4000 },
+        { nome: 'Vidros/Fume', valor: 4000 },
         { nome: 'Buzina', valor: 2000 },
         { nome: 'Extras', valor: 500 }
       ],
 
       //Iluminação
       [
-        { nome: 'Instalação', valor: 10000 },
+        { nome: 'Xenon / Farol Colorido', valor: 10000 },
+        { nome: 'Cor', valor: 500 },
+        { nome: 'Neon', valor: 8000 },
         { nome: 'Cor', valor: 500 }
       ],
 
@@ -298,18 +304,13 @@
         { nome: 'Motor III', valor: 44000 },
         { nome: 'Motor IV', valor: 50000 },
 
-        { nome: 'Freios I', valor: 30000 },
-        { nome: 'Freios II', valor: 34000 },
-        { nome: 'Freios III', valor: 38000 },
-        { nome: 'Freios IV', valor: 42000 },
-
         { nome: 'Transmissão I', valor: 30000 },
         { nome: 'Transmissão II', valor: 35000 },
         { nome: 'Transmissão III', valor: 40000 },
 
-        { nome: 'Freio I', valor: 22000 },
-        { nome: 'Freio II', valor: 25000 },
-        { nome: 'Freio III', valor: 30000 },
+        { nome: 'Freios I', valor: 22000 },
+        { nome: 'Freios II', valor: 25000 },
+        { nome: 'Freios III', valor: 30000 },
 
         { nome: 'Suspensão I', valor: 15000 },
         { nome: 'Suspensão II', valor: 19000 },
@@ -433,7 +434,7 @@
       updateTotal();
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const scrollToTopButton = document.querySelector('.scroll-to-top');
       if (window.scrollY > 300) {
         scrollToTopButton.style.display = 'block';
@@ -442,10 +443,11 @@
       }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       populateTables();
       populateDiscountTable();
     });
   </script>
 </body>
+
 </html>
